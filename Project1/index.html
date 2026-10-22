@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<!-- Defines this document as HTML5 -->
+<html lang="en">
+<!-- Starts the HTML document -->
+
+<head>
+    <!-- Contains page settings and metadata -->
+    <meta charset="UTF-8">
+    <!-- Supports standard characters -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Makes the page responsive -->
+    <title>TaskFlow - To-Do List</title>
+    <!-- Sets the browser tab title -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Connects the CSS file -->
+</head>
+
+<body>
+    <!-- Contains all visible page content -->
+    <header>
+        <!-- Creates the top navigation area -->
+        <h1>☑ TaskFlow</h1>
+        <!-- Displays the app name -->
+        <p>Small steps. Big progress.</p>
+        <!-- Displays the tagline -->
+    </header>
+
+    <main class="container">
+        <!-- Contains the main to-do app -->
+        <h2>My To-Do List</h2>
+        <!-- Displays the section heading -->
+        <p class="subtitle">Stay organized. Get things done.</p>
+        <!-- Displays the subtitle -->
+
+        <form id="task-form">
+            <!-- Creates the task input form -->
+            <input type="text" id="task-input" placeholder="Add a new task..." autocomplete="off">
+            <!-- Accepts a new task -->
+            <button type="submit">+ Add</button>
+            <!-- Adds the task when clicked -->
+        </form>
+
+        <div class="filters">
+            <!-- Contains task filter buttons -->
+            <button class="filter active" data-filter="all">All</button>
+            <!-- Displays all tasks -->
+            <button class="filter" data-filter="active">Active</button>
+            <!-- Displays unfinished tasks -->
+            <button class="filter" data-filter="completed">Completed</button>
+            <!-- Displays finished tasks -->
+            <button id="clear-all">Clear All</button>
+            <!-- Removes all tasks -->
+        </div>
+
+        <ul id="task-list"></ul>
+        <!-- Displays tasks dynamically -->
+
+        <footer>
+            <!-- Displays task statistics -->
+            <p id="task-count">0 completed | 0 remaining</p>
+            <!-- Shows completion statistics -->
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+    <!-- Connects the JavaScript file -->
+</body>
+<!-- Ends the page body -->
+</html>
+<!-- Ends the HTML document -->
