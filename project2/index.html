@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Nova Calc | Futuristic Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="bg" aria-hidden="true"></canvas>
+  <div class="orb o1" aria-hidden="true"></div>
+  <div class="orb o2" aria-hidden="true"></div>
+  <div class="orb o3" aria-hidden="true"></div>
+  <div class="spot" aria-hidden="true"></div>
+
+  <main class="stage">
+    <section class="calc" id="calc" aria-label="Calculator">
+      <div class="ring" id="ring" aria-hidden="true"></div>
+
+      <header class="bar">
+        <div class="brand"><span class="dot" id="dot"></span><span id="status">Ready</span></div>
+        <div class="tools">
+          <button class="icon" id="btn-sound" aria-label="Mute sound" aria-pressed="false" title="Sound">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path class="waves" d="M16 9a4 4 0 010 6M18.5 6.5a8 8 0 010 11"/><path class="x" d="M16 9l5 6M21 9l-5 6"/></svg>
+          </button>
+          <button class="icon" id="btn-theme" aria-label="Switch to light theme" title="Theme">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path class="moon" d="M20 14.5A8 8 0 019.5 4a8 8 0 1010.5 10.5z"/><g class="sun"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M5 19l1.5-1.5M17.5 6.5L19 5"/></g></svg>
+          </button>
+          <button class="icon" id="btn-history" aria-label="Toggle history" aria-expanded="true" aria-controls="history" title="History">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          </button>
+        </div>
+      </header>
+
+      <div class="screen" aria-live="polite">
+        <div class="expr" id="expr"></div>
+        <div class="result-row">
+          <button class="copy" id="btn-copy" aria-label="Copy result">
+            <span class="tip">Copy</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><g class="cp"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 012-2h9"/></g><path class="chk" d="M5 13l4 4L19 7"/></svg>
+          </button>
+          <div class="result" id="result">0</div>
+        </div>
+      </div>
+
+      <div class="keys" role="group" aria-label="Calculator keys">
+        <button class="key" data-kind="ac"  data-id="clear" aria-label="All clear">AC</button>
+        <button class="key" data-kind="del" data-id="del"   aria-label="Delete last digit">DEL</button>
+        <button class="key" data-kind="fn"  data-id="%"     aria-label="Percent">%</button>
+        <button class="key" data-kind="op"  data-id="÷"     aria-label="Divide">÷</button>
+
+        <button class="key" data-kind="num" data-id="7">7</button>
+        <button class="key" data-kind="num" data-id="8">8</button>
+        <button class="key" data-kind="num" data-id="9">9</button>
+        <button class="key" data-kind="op"  data-id="×"     aria-label="Multiply">×</button>
+
+        <button class="key" data-kind="num" data-id="4">4</button>
+        <button class="key" data-kind="num" data-id="5">5</button>
+        <button class="key" data-kind="num" data-id="6">6</button>
+        <button class="key" data-kind="op"  data-id="−"     aria-label="Subtract">−</button>
+
+        <button class="key" data-kind="num" data-id="1">1</button>
+        <button class="key" data-kind="num" data-id="2">2</button>
+        <button class="key" data-kind="num" data-id="3">3</button>
+        <button class="key" data-kind="op"  data-id="+"     aria-label="Add">+</button>
+
+        <button class="key" data-kind="fn"  data-id="sign"  aria-label="Toggle positive or negative">±</button>
+        <button class="key" data-kind="num" data-id="0">0</button>
+        <button class="key" data-kind="num" data-id="."     aria-label="Decimal point">.</button>
+        <button class="key eq" data-kind="eq" data-id="="   aria-label="Equals">=</button>
+      </div>
+    </section>
+
+    <aside class="history" id="history" aria-label="Calculation history">
+      <div class="h-head">
+        <h2>History</h2>
+        <button class="h-clear" id="btn-hclear">Clear</button>
+      </div>
+      <ul id="h-list"></ul>
+      <p id="h-empty">No calculations yet. Results you finish with = appear here.</p>
+    </aside>
+  </main>
+
+  <div class="toast" id="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
